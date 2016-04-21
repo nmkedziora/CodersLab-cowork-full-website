@@ -68,7 +68,6 @@ section {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top left;
-  margin-bottom: 50px;
   overflow: hidden;
 }
 
@@ -121,6 +120,42 @@ author: Piotr Siedlecki
     position: absolute;
     top: 54%;
   }
+}
+
+.navigation {
+  padding-top: 30px;
+}
+
+.nav-logo {
+  float: left;
+  color: #FF5722;
+  font-weight: 700;
+  border: 2px solid #FF5722;
+  padding: 18px 35px;
+  border-radius: 10px;
+}
+
+.nav {
+  float: right;
+}
+
+.nav ul {
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+.nav li {
+  list-style-type: none;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0 10px;
+  color: #A2A2A2;
+  font-weight: 500;
+}
+
+.nav li:hover {
+  color: #FF5722;
+  font-weight: 600;
 }
 
 .intro p {
