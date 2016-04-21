@@ -1,52 +1,50 @@
 $(document).ready(function() {
 
 
+  resizeBackground();
   parallax();
 
 
-  // added to prevent background image in header from bumping on mobile
+  // below function added to prevent background image in header from bumping on mobile
   // more details at:
   // http://stackoverflow.com/questions/24944925/background-image-jumps-when-address-bar-hides-ios-android-mobile-chrome
-  var bg = $(".background-box");
-
-  $(window).resize("resizeBackground");
   function resizeBackground() {
-    bg.height($(window).height() + 60);
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      $(".background-box").height($(window).height() + 60); // 60 is the height of URL bar in mobile browsers
+    }
   }
-  resizeBackground();
 
-  function parallax() {
-    $(window).on("scroll", function () {
-      var windowScroll = $(this).scrollTop();
+    function parallax() {
+      $(window).on("scroll", function () {
+        var windowScroll = $(this).scrollTop();
 
-      // parallax on header
-      $(".logo").css({
-        "transform": "translate(0px, "+ windowScroll / 3 + "%)"
-      });
+        // parallax on header
+        $(".logo").css({
+          "transform": "translate(0px, "+ windowScroll / 3 + "%)"
+        });
 
-      $(".back-image").css({
-        "transform": "translate(0px, "+ windowScroll / 8 + "%)"
-      });
+        $(".back-image").css({
+          "transform": "translate(0px, "+ windowScroll / 8 + "%)"
+        });
 
-      $(".fore-image").css({
-        "transform": "translate(0px, -"+ windowScroll / 20 + "%)"
-      });
+        $(".fore-image").css({
+          "transform": "translate(0px, -"+ windowScroll / 20 + "%)"
+        });
 
-      // parallax on team section
-      if (windowScroll > $(".team").offset().top - $(window).height() / 2) {
+        // parallax on team section
+        if (windowScroll > $(".team").offset().top - $(window).height() / 2) {
 
-        $(".photo-placeholder").each(function (i) {
-          var self = $(this);
+          $(".photo-placeholder").each(function (i) {
+            var self = $(this);
 
-          if (!self.hasClass("is-visible")) {
-            setTimeout(function () {
-              self.addClass("is-visible");
-            }, 250 * (i + 1));
-          }
-        }); // each
-      }
-    }); // window scroll
-  } // parallax
-
+            if (!self.hasClass("is-visible")) {
+              setTimeout(function () {
+                self.addClass("is-visible");
+              }, 250 * (i + 1));
+            }
+          }); // each
+        }
+      }); // window scroll
+    } // parallax
 
 }); // $(document).ready(function()
