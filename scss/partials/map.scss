@@ -1,3 +1,9 @@
+.map {
+  p {
+    text-align: justify;
+  }
+}
+
 #base-map {
   width: 100%;
   background-image: url("../images/cowork_plan/base.jpg");
@@ -5,9 +11,6 @@
   background-repeat: no-repeat;
   padding-bottom: (2736 / 3800) * 100%;
   position: relative;
-  div {
-    display: none;
-  }
   li {
     list-style-type: none;
   }
@@ -77,21 +80,39 @@
   z-index: 5
 }
 
-.room-info {
+
+%information {
   width: 30%;
   height: 30%;
-  background-color: $mainColor;
-  display: none;
+  border-radius: 5px;
+  background: $mainColor;
+  background: rgba($mainColor, 0.95);
+  display: block;
   z-index: 10;
   position: absolute;
+  padding: 10px;
+  display: none;
+}
+
+%information-bubble {
+  content: "";
+  position: absolute;
+  border-bottom: 50px solid $mainColor;
+  border-bottom: 50px solid rgba($mainColor, 0.95);
+  border-bottom-color: $mainColor;
+    border-bottom-color: rgba($mainColor, 0.95);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 
 #room1-info {
-  top:30%;
-  left: 5%;
-}
-
-#room2-info {
-  top:25%;
-  left: 40%;
+  @extend %information;
+    top: 25%;
+    left: 10%;
+    font-size: 1.5rem;
+    &:after {
+      @extend %information-bubble;
+      top: -50px;
+      left: 80px;
+  }
 }

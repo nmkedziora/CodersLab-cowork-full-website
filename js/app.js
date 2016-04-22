@@ -53,17 +53,13 @@ $(document).ready(function() {
     var rooms = $("#base-map").find("img");
     var roomsInfo = $("#base-map").find(".room-info");
 
-    console.log(map);
-    console.log(rooms);
-    console.log(roomsInfo);
-
     rooms.each(function (i) {
       $(this).on("mouseover", function() {
-        console.log("mouseover");
+        $(this).css("opacity", 0.2);
         $(this).prev().show();
       });
       $(this).on("mouseout", function() {
-        console.log("mouseout");
+        $(this).css("opacity", 1);
         $(this).prev().hide();
       });
     });

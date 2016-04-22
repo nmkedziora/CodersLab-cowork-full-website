@@ -56,6 +56,10 @@ section {
   text-align: center;
 }
 
+.main-color {
+  color: #FF5722;
+}
+
 .background-box {
   position: relative;
   width: 100%;
@@ -208,6 +212,10 @@ author: Jaqen
   padding: 0 15px;
 }
 
+.map p {
+  text-align: justify;
+}
+
 #base-map {
   width: 100%;
   background-image: url("../images/cowork_plan/base.jpg");
@@ -215,10 +223,6 @@ author: Jaqen
   background-repeat: no-repeat;
   padding-bottom: 72%;
   position: relative;
-}
-
-#base-map div {
-  display: none;
 }
 
 #base-map li {
@@ -289,23 +293,39 @@ author: Jaqen
   z-index: 5;
 }
 
-.room-info {
+#room1-info {
   width: 30%;
   height: 30%;
-  background-color: #FF5722;
-  display: none;
+  border-radius: 5px;
+  background: #FF5722;
+  background: rgba(255, 87, 34, 0.95);
+  display: block;
   z-index: 10;
   position: absolute;
+  padding: 10px;
+  display: none;
+}
+
+#room1-info:after {
+  content: "";
+  position: absolute;
+  border-bottom: 50px solid #FF5722;
+  border-bottom: 50px solid rgba(255, 87, 34, 0.95);
+  border-bottom-color: #FF5722;
+  border-bottom-color: rgba(255, 87, 34, 0.95);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 
 #room1-info {
-  top: 30%;
-  left: 5%;
+  top: 25%;
+  left: 10%;
+  font-size: 1.5rem;
 }
 
-#room2-info {
-  top: 25%;
-  left: 40%;
+#room1-info:after {
+  top: -50px;
+  left: 80px;
 }
 
 .contact {
