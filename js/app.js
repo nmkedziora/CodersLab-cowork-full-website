@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   resizeBackground();
   parallax();
+  reserveRoom();
 
 
   // below function added to prevent background image in header from bumping on mobile
@@ -44,7 +45,28 @@ $(document).ready(function() {
             }
           }); // each
         }
-      }); // window scroll
+      }); // if (windowScroll...)
     } // parallax
+
+  function reserveRoom() {
+    var map = $("#base-map");
+    var rooms = $("#base-map").find("img");
+    var roomsInfo = $("#base-map").find(".room-info");
+
+    console.log(map);
+    console.log(rooms);
+    console.log(roomsInfo);
+
+    rooms.each(function (i) {
+      $(this).on("mouseover", function() {
+        console.log("mouseover");
+        $(this).prev().show();
+      });
+      $(this).on("mouseout", function() {
+        console.log("mouseout");
+        $(this).prev().hide();
+      });
+    });
+  } // reserveRoom()
 
 }); // $(document).ready(function()
